@@ -24,7 +24,7 @@ class Plant:
 
 class Flower(Plant):
     def eat(self, food):
-        if food.name:
+        if food.name
 
 
 
@@ -33,6 +33,6 @@ class Fruit(Plant):
     def eat(self, food):
         edible = True
 
-
+print(Mammal.eat())
 print(f"{self.name} съел {food.name}")
 print(f"{self.name} не стал есть {food.name}")
