@@ -24,7 +24,7 @@ class Plant:
 
 class Flower(Plant):
     def eat(self, food):
-        if food.name:
+        if food.name
 
 
 
