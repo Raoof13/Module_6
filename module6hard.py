@@ -1,38 +1,41 @@
-# Задача "Съедобное, несъедобное"
+# Задача "Изменять нельзя получать"
 
-class Animal:
-    def __init__(self, name):
-        self.eat()
+class Vehicle:
+    def __init__(self):
+        self.owner = str
+        self.__model = str
+        self.__engine_power = int
+        self.__color = str
+        self.__COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
+
+    def get_model(self, name):
         self.name = name
-        alive = True
-        fed = False
+        return print(f'Модель {self.name}')
 
-class Mammal(Animal):
-    def eat(self, food):
-            ...
+    def get_horsepower(self):
+        pass
 
-class Predator(Animal):
-    def eat(self, food):
-            ...
+    def get_color(self):
+        pass
 
+    def print_info(self):
+        pass
 
-class Plant:
-    def __init__(self, name, edible):
-        self.eat()
-        edible = False
-        self.name = name
-
-class Flower(Plant):
-    def eat(self, food):
-        if food.name
+class Sedan(Vehicle):
+    pass
 
 
 
+# Текущие цвета __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
+vehicle1 = Sedan('Fedos', 'Toyota Mark II', 'blue', 500)
 
-class Fruit(Plant):
-    def eat(self, food):
-        edible = True
+# Изначальные свойства
+vehicle1.print_info()
 
-print(Mammal.eat())
-print(f"{self.name} съел {food.name}")
-print(f"{self.name} не стал есть {food.name}")
+# Меняем свойства (в т.ч. вызывая методы)
+vehicle1.set_color('Pink')
+vehicle1.set_color('BLACK')
+vehicle1.owner = 'Vasyok'
+
+# Проверяем что поменялось
+vehicle1.print_info()
