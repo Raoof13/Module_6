@@ -1,41 +1,66 @@
-# Задача "Изменять нельзя получать"
+import random
 
-class Vehicle:
-    def __init__(self):
-        self.owner = str
-        self.__model = str
-        self.__engine_power = int
-        self.__color = str
-        self.__COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
+_DEGREE_OF_DANGER = 0
 
-    def get_model(self, name):
-        self.name = name
-        return print(f'Модель {self.name}')
+class Animal:
+    speed: int
+    live = True
+    sound = None
 
-    def get_horsepower(self):
+
+    def __init__(self, _cords, speed: int):
+        self._cords = [0, 0, 0]
+        self.speed = speed
+
+    def move(self, dx, dy, dz):
+
+        if dz < 0:
+            print("It's too deep, i can't dive :(")
+        else:
+            self._cords = [dx, dy, dz] * self.speed
+
+    def get_cords(self, dx, dy, dz):
+         print(f"X: {dx}, Y: {dy}, Z: {dz}")
+
+    def attack(self):
+        if _DEGREE_OF_DANGER < 5:
+            print("Sorry, i'm peaceful :)")
+        else:
+            print("Be careful, i'm attacking you 0_0")
+
+class Bird(Animal):
+    beak = True
+    def lay_eggs(self):
+        print(f"Here are(is) {random.randint(1, 4)} eggs for you")
+
+class AquaticAnimal(Animal):
+    _DEGREE_OF_DANGER = 3
+    def dive_in(self, dz):
+        ...
+
+class PoisonousAnimal(Animal):
+    _DEGREE_OF_DANGER = 8
+
+
+class Duckbill(Bird, AquaticAnimal, PoisonousAnimal):
+    sound = "Click-click-click"
+
+
+    def speak(self):
         pass
 
-    def get_color(self):
-        pass
 
-    def print_info(self):
-        pass
+db = Duckbill(10)
 
-class Sedan(Vehicle):
-    pass
+print(db.live)
+print(db.beak)
 
+db.speak()
+db.attack()
 
+db.move(1, 2, 3)
+db.get_cords()
+db.dive_in(6)
+db.get_cords()
 
-# Текущие цвета __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
-vehicle1 = Sedan('Fedos', 'Toyota Mark II', 'blue', 500)
-
-# Изначальные свойства
-vehicle1.print_info()
-
-# Меняем свойства (в т.ч. вызывая методы)
-vehicle1.set_color('Pink')
-vehicle1.set_color('BLACK')
-vehicle1.owner = 'Vasyok'
-
-# Проверяем что поменялось
-vehicle1.print_info()
+db.lay_eggs()
